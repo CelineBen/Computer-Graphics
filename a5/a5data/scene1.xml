@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<scene ambient="0.1 0.1 0.1 1.0">
+	<!-- define camera,material,lights here -->
+	<light name="myLight" color="1 1 1" from="-5 5 5" power="1.0" type="point" />
+	<light name="myLight2" color="1 1 1" from="5 5 5 " power="1.0" type="point" />
+
+	<material name="red" diffuse="1 0 0" specular="0 0 0" hardness="0" />
+	<material name="green" diffuse="0 1 0" specular="0 0 0" hardness="0" />
+	<material name="blue" diffuse="0 0 1" specular="0 0 0" hardness="0" />
+
+	<!-- render configuration -->
+	<render bgcolor="0 0 0" output="scene1.png">
+		<camera name="myCamera" from="0 0 10" to="0 0 0" up="0 1 0" fov="45" width="512" height="512" />
+	</render>
+
+	<!-- scene objects -->
+	<node name="root">
+		<node name="box1">
+			<box min="-1 -1 -1" max="1 1 1">
+				<material ref="red" />
+			</box>
+		</node>
+		<node name="box2" ref="box1" translation="3 0 0" rotation="45 45 45">
+			<material ref="blue" />
+		</node>
+		<node name="box3" ref="box1" translation="-3 0 0" rotation="90 45 45">
+			<material ref="green" />
+		</node>
+	</node>
+</scene>
